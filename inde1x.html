@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fatality Gallery</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #1a1a1a;
+            font-family: Arial, sans-serif;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 动画标题部分 */
+        .title-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            background-color: #1a1a1a;
+        }
+
+        .title-animation {
+            position: relative;
+            font-size: 60px;
+            color: #ff3300;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .f-letter {
+            display: inline-block;
+            animation: scaleMove 2s forwards;
+        }
+
+        .atality {
+            display: inline-block;
+            position: relative;
+            left: -1em;
+            opacity: 0;
+            animation: fadeSlide 1s 2s forwards;
+        }
+
+        @keyframes scaleMove {
+            0% { transform: scale(1.3); }
+            40% { transform: scale(1.3); }
+            60% { transform: scale(1); }
+            100% { transform: translateX(-0.7em) scale(1); }
+        }
+
+        @keyframes fadeSlide {
+            0% {
+                opacity: 0;
+                transform: translateY(20px) translateX(0em);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) translateX(0);
+            }
+        }
+
+        /* 画廊部分 */
+        .content {
+            flex: 1;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+        
+        header {
+            padding: 20px;
+            text-align: center;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 5px;
+        }
+        
+        h1 {
+            color: #ff6b81;
+            margin-bottom: 5px;
+        }
+        
+        h2 {
+            color: #666;
+            font-size: 16px;
+            font-weight: normal;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 5px;
+            padding: 5px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .artwork {
+            background: white;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .artwork:hover {
+            transform: scale(1.02);
+            z-index: 1;
+        }
+        
+        .artwork img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .info {
+            padding: 10px;
+            text-align: center;
+            background: white;
+        }
+        
+        .title {
+            font-weight: bold;
+            margin-bottom: 3px;
+            color: #333;
+        }
+        
+        .artist {
+            color: #999;
+            font-size: 13px;
+        }
+        
+        /* 选择框部分 */
+        .choice-container {
+            text-align: center;
+            padding: 20px;
+            background-color: #1a1a1a;
+        }
+        
+        .choice-box {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #333;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        
+        select, button {
+            padding: 8px 15px;
+            margin: 0 10px;
+            border-radius: 4px;
+            border: none;
+            font-size: 16px;
+        }
+        
+        button {
+            background-color: #ff3300;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #ff5500;
+        }
+        
+        #result {
+            margin-top: 15px;
+            font-size: 18px;
+            color: #ff3300;
+            min-height: 27px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 15px;
+            color: #999;
+            font-size: 12px;
+            background-color: #1a1a1a;
+        }
+    </style>
+</head>
+<body>
+    <!-- 动画标题部分 -->
+    <div class="title-container">
+        <div class="title-animation">
+            <span class="f-letter">F</span>
+            <span class="atality">atality</span>
+        </div>
+    </div>
+
+    <!-- 画廊内容部分 -->
+    <div class="content">
+        <header>
+            <h1>嘻嘻嘻</h1>
+            <h2>有想上传图的发给作者即可 (dev by zcygod)</h2>
+        </header>
+        
+        <div class="gallery">
+            <!-- 作品1 -->
+            <div class="artwork">
+                <img src="1.jpg" alt="1">
+                <div class="info">
+                    <div class="title">王小桃一号</div>
+                    <div class="artist">from pixiv</div>
+                </div>
+            </div>
+            
+            <!-- 作品2 -->
+            <div class="artwork">
+                <img src="2.png" alt="2">
+                <div class="info">
+                    <div class="title">泉此方</div>
+                    <div class="artist">from pixiv</div>
+                </div>
+            </div>
+            
+            <!-- 作品3 -->
+            <div class="artwork">
+                <img src="3.jpg" alt="3">
+                <div class="info">
+                    <div class="title">泉此方</div>
+                    <div class="artist">from pixiv</div>
+                </div>
+            </div>
+            
+            <!-- 作品4 -->
+            <div class="artwork">
+                <img src="4.png" alt="4">
+                <div class="info">
+                    <div class="title">鸠(phigros)</div>
+                    <div class="artist">from pixiv</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 选择框部分 -->
+    <div class="choice-container">
+        <div class="choice-box">
+            <select id="choice">
+                <option value="">评价一下这个网站</option>
+                <option value="yes">挺好的看力了</option>
+                <option value="no">垃圾东西重开吧</option>
+            </select>
+            <button onclick="showResult()">确定</button>
+            <div id="result"></div>
+        </div>
+    </div>
+
+    <footer>
+        更多作品持续更新中...
+    </footer>
+
+    <script>
+        function showResult() {
+            const choice = document.getElementById('choice').value;
+            const result = document.getElementById('result');
+            
+            if (choice === 'yes') {
+                result.textContent = '😁谢谢支持';
+            } else if (choice === 'no') {
+                result.textContent = '💔💔💔💔💔';
+            } else {
+                result.textContent = '请选择一个选项';
+            }
+        }
+    </script>
+</body>
+</html>
